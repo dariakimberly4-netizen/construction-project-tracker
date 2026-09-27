@@ -4,160 +4,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Construction Project Tracker</title>
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=8" />
 
-<style id="mobile-fix-v6">
-@media (max-width:760px){
-  html,body{margin:0!important;min-height:100%!important;background:#06100d!important}
-  #orbitView.screen.active{
-    display:flex!important;
-    flex-direction:column!important;
-    min-height:100svh!important;
-    height:100svh!important;
-    overflow:hidden!important;
-    padding:12px 12px 10px!important;
-  }
-  #orbitView .topbar{flex:0 0 auto!important}
-  #orbitView .orbit-wrap{
-    flex:1 1 auto!important;
-    width:96vw!important;
-    height:auto!important;
-    aspect-ratio:1/1!important;
-    margin:10px auto 0!important;
-    align-self:center!important;
-    transform:none!important;
-  }
-  #orbitView .quick-metrics{
-    flex:0 0 auto!important;
-    width:100%!important;
-    grid-template-columns:repeat(4,minmax(0,1fr))!important;
-    gap:6px!important;
-    margin:8px 0 0!important;
-  }
-  #orbitView .quick-metrics div{padding:9px 4px!important}
-  #orbitView .quick-metrics strong{font-size:15px!important}
-  #orbitView .quick-metrics span{font-size:9px!important}
 
-  /* occupy the remaining vertical area rather than leaving a blank lower half */
-  #orbitView::after{
-    content:"";
-    flex:1 1 auto;
-    min-height:0;
-  }
-}
-@media (max-width:760px) and (min-height:780px){
-  #orbitView .orbit-wrap{
-    width:min(96vw,58svh)!important;
-  }
-  #orbitView::after{flex-grow:0!important}
-  #orbitView.screen.active{justify-content:space-between!important}
-}
-</style>
-<!-- MOBILE_FIT_V7_START -->
+
+
 <style>
 @media (max-width:760px){
-  html,body{width:100%;min-height:100%;overflow-x:hidden!important}
-  body{min-height:100dvh!important}
+  html,body,#app{width:100%;height:100%;margin:0;overflow:hidden!important}
   #orbitView.screen.active{
-    display:grid!important;
-    grid-template-rows:auto 1fr auto!important;
-    width:100%!important;
+    display:block!important;
+    width:100vw!important;
     height:100dvh!important;
     min-height:100dvh!important;
-    padding:10px 10px 12px!important;
+    padding:0!important;
     overflow:hidden!important;
+    position:relative!important;
   }
-  #orbitView .topbar{
-    width:100%!important;
-    min-height:62px!important;
-    align-items:flex-start!important;
+  #homeFit{
+    position:absolute;
+    top:0;
+    left:0;
+    width:390px;
+    min-height:760px;
+    padding:14px;
+    transform-origin:top left;
+    box-sizing:border-box;
   }
-  #orbitView .topbar h1{
-    font-size:28px!important;
-    line-height:1.02!important;
-  }
-  #orbitView .eyebrow{
-    font-size:9px!important;
-    line-height:1.2!important;
-    letter-spacing:.13em!important;
-  }
-  #orbitView .status-pill{
-    font-size:9px!important;
-    padding:7px 9px!important;
-    white-space:nowrap!important;
-  }
-  #orbitView .orbit-wrap{
-    width:min(98vw,calc(100dvh - 170px))!important;
-    height:min(98vw,calc(100dvh - 170px))!important;
+  #homeFit .topbar{width:100%;margin:0}
+  #homeFit .topbar h1{font-size:30px;line-height:1.05}
+  #homeFit .eyebrow{font-size:9px}
+  #homeFit .status-pill{font-size:9px;padding:7px 10px}
+  #homeFit .orbit-wrap{
+    width:370px!important;
+    height:370px!important;
     aspect-ratio:1/1!important;
-    margin:auto!important;
+    margin:14px auto 0!important;
     transform:none!important;
-    align-self:center!important;
-    justify-self:center!important;
   }
-  #orbitView .module{
-    width:20%!important;
-    height:20%!important;
-    max-width:none!important;
-    max-height:none!important;
-  }
-  #orbitView .module b{
-    font-size:clamp(11px,3.1vw,14px)!important;
-    line-height:1.05!important;
-  }
-  #orbitView .module span{
-    font-size:clamp(8px,2vw,10px)!important;
-  }
-  #orbitView .core{
-    width:32%!important;
-    height:32%!important;
-    max-width:none!important;
-    max-height:none!important;
-  }
-  #orbitView .core h2{
-    font-size:clamp(17px,4.8vw,22px)!important;
-    line-height:.98!important;
-  }
-  #orbitView .helmet{
-    font-size:22px!important;
-    margin-bottom:5px!important;
-  }
-  #orbitView .core p{display:none!important}
-  #orbitView .quick-metrics{
-    width:100%!important;
-    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  #homeFit .module{width:70px!important;height:70px!important;max-width:none!important;max-height:none!important}
+  #homeFit .module b{font-size:11px!important}
+  #homeFit .module span{font-size:8px!important}
+  #homeFit .core{width:118px!important;height:118px!important;max-width:none!important;max-height:none!important}
+  #homeFit .core h2{font-size:18px!important}
+  #homeFit .core p{font-size:9px!important;display:block!important}
+  #homeFit .quick-metrics{
+    width:100%;
+    grid-template-columns:repeat(4,1fr)!important;
     gap:6px!important;
-    margin:0!important;
-    align-self:end!important;
+    margin:10px 0 0!important;
   }
-  #orbitView .quick-metrics div{
-    min-width:0!important;
-    padding:8px 3px!important;
-    border-radius:11px!important;
-  }
-  #orbitView .quick-metrics strong{
-    font-size:14px!important;
-    line-height:1!important;
-    white-space:nowrap!important;
-  }
-  #orbitView .quick-metrics span{
-    font-size:8px!important;
-    line-height:1.1!important;
-    white-space:nowrap!important;
-  }
-}
-@media (max-width:380px){
-  #orbitView .topbar h1{font-size:24px!important}
-  #orbitView .module b{font-size:10px!important}
-  #orbitView .quick-metrics strong{font-size:12px!important}
-  #orbitView .quick-metrics span{font-size:7px!important}
+  #homeFit .quick-metrics div{padding:8px 3px!important;border-radius:11px!important}
+  #homeFit .quick-metrics strong{font-size:14px!important}
+  #homeFit .quick-metrics span{font-size:8px!important}
 }
 </style>
-<!-- MOBILE_FIT_V7_END -->
 </head>
 <body>
   <main id="app">
     <section id="orbitView" class="screen active">
+      <div id="homeFit" class="home-fit">
       <div class="topbar">
         <div><p class="eyebrow">CONSTRUCTION PROJECT TRACKER</p><h1>Project Control</h1></div>
         <div class="status-pill">● LIVE DEMO</div>
@@ -180,6 +86,7 @@
         <div><strong>27</strong><span>On Site</span></div>
         <div><strong>5 days</strong><span>Behind</span></div>
       </div>
+      </div>
     </section>
     <section id="moduleView" class="screen">
       <div class="module-shell">
@@ -192,6 +99,6 @@
       </div>
     </section>
   </main>
-  <script src="app.js?v=7"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>
