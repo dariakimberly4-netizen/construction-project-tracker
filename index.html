@@ -4,7 +4,55 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Construction Project Tracker</title>
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=6" />
+
+<style id="mobile-fix-v6">
+@media (max-width:760px){
+  html,body{margin:0!important;min-height:100%!important;background:#06100d!important}
+  #orbitView.screen.active{
+    display:flex!important;
+    flex-direction:column!important;
+    min-height:100svh!important;
+    height:100svh!important;
+    overflow:hidden!important;
+    padding:12px 12px 10px!important;
+  }
+  #orbitView .topbar{flex:0 0 auto!important}
+  #orbitView .orbit-wrap{
+    flex:1 1 auto!important;
+    width:96vw!important;
+    height:auto!important;
+    aspect-ratio:1/1!important;
+    margin:10px auto 0!important;
+    align-self:center!important;
+    transform:none!important;
+  }
+  #orbitView .quick-metrics{
+    flex:0 0 auto!important;
+    width:100%!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:6px!important;
+    margin:8px 0 0!important;
+  }
+  #orbitView .quick-metrics div{padding:9px 4px!important}
+  #orbitView .quick-metrics strong{font-size:15px!important}
+  #orbitView .quick-metrics span{font-size:9px!important}
+
+  /* occupy the remaining vertical area rather than leaving a blank lower half */
+  #orbitView::after{
+    content:"";
+    flex:1 1 auto;
+    min-height:0;
+  }
+}
+@media (max-width:760px) and (min-height:780px){
+  #orbitView .orbit-wrap{
+    width:min(96vw,58svh)!important;
+  }
+  #orbitView::after{flex-grow:0!important}
+  #orbitView.screen.active{justify-content:space-between!important}
+}
+</style>
 </head>
 <body>
   <main id="app">
@@ -43,6 +91,6 @@
       </div>
     </section>
   </main>
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>
