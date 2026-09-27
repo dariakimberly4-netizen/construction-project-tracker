@@ -22,3 +22,54 @@
     grid-template-columns:repeat(4,minmax(0,1fr))!important;
   }
 }
+
+/* Mobile tall-screen layout v4: use the full available height */
+@media (max-width:760px){
+  #orbitView.screen.active{
+    display:grid!important;
+    grid-template-rows:auto minmax(0,1fr) auto!important;
+    height:100dvh!important;
+    min-height:100dvh!important;
+    overflow:hidden!important;
+    padding:10px 12px 10px!important;
+    gap:4px!important;
+  }
+  #orbitView .topbar{align-self:start!important}
+  #orbitView .orbit-wrap{
+    width:96vw!important;
+    height:calc(100dvh - 150px)!important;
+    max-height:none!important;
+    aspect-ratio:auto!important;
+    margin:0 auto!important;
+    align-self:center!important;
+    justify-self:center!important;
+    transform:none!important;
+  }
+  #orbitView .orbit-ring{inset:5% 10%!important}
+  #orbitView .ring-2{inset:25% 24%!important}
+  #orbitView .module{
+    width:19vw!important;
+    height:19vw!important;
+    max-width:86px!important;
+    max-height:86px!important;
+  }
+  #orbitView .module-1{left:40.5%!important;top:2%!important}
+  #orbitView .module-2{right:8%!important;top:17%!important}
+  #orbitView .module-3{right:1%!important;top:42%!important}
+  #orbitView .module-4{right:8%!important;bottom:17%!important}
+  #orbitView .module-5{left:40.5%!important;bottom:2%!important}
+  #orbitView .module-6{left:8%!important;bottom:17%!important}
+  #orbitView .module-7{left:1%!important;top:42%!important}
+  #orbitView .module-8{left:8%!important;top:17%!important}
+  #orbitView .core{
+    width:32vw!important;
+    height:32vw!important;
+    max-width:142px!important;
+    max-height:142px!important;
+  }
+  #orbitView .quick-metrics{
+    align-self:end!important;
+    margin:0!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  }
+}
