@@ -4,59 +4,110 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Construction Project Tracker</title>
-  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="stylesheet" href="styles.css?v=9" />
 
 
 
 
-<style>
+
+
+<style id="mobile-readable-v9">
 @media (max-width:760px){
-  html,body,#app{width:100%;height:100%;margin:0;overflow:hidden!important}
+  html,body,#app{margin:0!important;width:100%!important;min-height:100%!important;overflow-x:hidden!important}
+  body{background:#06100d!important}
   #orbitView.screen.active{
-    display:block!important;
-    width:100vw!important;
-    height:100dvh!important;
+    display:flex!important;
+    flex-direction:column!important;
+    width:100%!important;
     min-height:100dvh!important;
-    padding:0!important;
-    overflow:hidden!important;
-    position:relative!important;
+    height:auto!important;
+    padding:12px 14px 16px!important;
+    overflow:visible!important;
   }
   #homeFit{
-    position:absolute;
-    top:0;
-    left:0;
-    width:390px;
-    min-height:760px;
-    padding:14px;
-    transform-origin:top left;
-    box-sizing:border-box;
-  }
-  #homeFit .topbar{width:100%;margin:0}
-  #homeFit .topbar h1{font-size:30px;line-height:1.05}
-  #homeFit .eyebrow{font-size:9px}
-  #homeFit .status-pill{font-size:9px;padding:7px 10px}
-  #homeFit .orbit-wrap{
-    width:370px!important;
-    height:370px!important;
-    aspect-ratio:1/1!important;
-    margin:14px auto 0!important;
+    position:static!important;
+    width:100%!important;
+    min-height:0!important;
+    padding:0!important;
     transform:none!important;
   }
-  #homeFit .module{width:70px!important;height:70px!important;max-width:none!important;max-height:none!important}
-  #homeFit .module b{font-size:11px!important}
-  #homeFit .module span{font-size:8px!important}
-  #homeFit .core{width:118px!important;height:118px!important;max-width:none!important;max-height:none!important}
-  #homeFit .core h2{font-size:18px!important}
-  #homeFit .core p{font-size:9px!important;display:block!important}
-  #homeFit .quick-metrics{
-    width:100%;
-    grid-template-columns:repeat(4,1fr)!important;
-    gap:6px!important;
-    margin:10px 0 0!important;
+  #homeFit .topbar{
+    width:100%!important;
+    margin:0 0 8px!important;
+    align-items:flex-start!important;
   }
-  #homeFit .quick-metrics div{padding:8px 3px!important;border-radius:11px!important}
-  #homeFit .quick-metrics strong{font-size:14px!important}
-  #homeFit .quick-metrics span{font-size:8px!important}
+  #homeFit .topbar h1{
+    font-size:27px!important;
+    line-height:1.05!important;
+  }
+  #homeFit .eyebrow{
+    font-size:9px!important;
+    letter-spacing:.12em!important;
+    margin-bottom:4px!important;
+  }
+  #homeFit .status-pill{
+    font-size:9px!important;
+    padding:7px 9px!important;
+  }
+  #homeFit .orbit-wrap{
+    width:92vw!important;
+    height:92vw!important;
+    aspect-ratio:1/1!important;
+    margin:4px auto 8px!important;
+    transform:none!important;
+  }
+  #homeFit .module{
+    width:22vw!important;
+    height:22vw!important;
+    max-width:92px!important;
+    max-height:92px!important;
+    min-width:76px!important;
+    min-height:76px!important;
+    border-width:1.5px!important;
+  }
+  #homeFit .module b{
+    font-size:13px!important;
+    line-height:1.05!important;
+  }
+  #homeFit .module span{
+    font-size:9px!important;
+    margin-bottom:3px!important;
+  }
+  #homeFit .core{
+    width:34vw!important;
+    height:34vw!important;
+    max-width:142px!important;
+    max-height:142px!important;
+  }
+  #homeFit .core h2{
+    font-size:20px!important;
+    line-height:.98!important;
+  }
+  #homeFit .core p{
+    display:block!important;
+    font-size:9px!important;
+    line-height:1.1!important;
+    margin:7px 12px 0!important;
+  }
+  #homeFit .quick-metrics{
+    width:100%!important;
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:8px!important;
+    margin:4px 0 0!important;
+  }
+  #homeFit .quick-metrics div{
+    padding:10px 8px!important;
+    border-radius:13px!important;
+  }
+  #homeFit .quick-metrics strong{
+    font-size:18px!important;
+    line-height:1.05!important;
+  }
+  #homeFit .quick-metrics span{
+    font-size:10px!important;
+    line-height:1.1!important;
+  }
 }
 </style>
 </head>
@@ -99,6 +150,6 @@
       </div>
     </section>
   </main>
-  <script src="app.js?v=8"></script>
+  <script src="app.js?v=9"></script>
 </body>
 </html>
