@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Construction Project Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app">
+    <section id="orbitView" class="screen active">
+      <div class="topbar">
+        <div><p class="eyebrow">CONSTRUCTION PROJECT TRACKER</p><h1>Project Control</h1></div>
+        <div class="status-pill">● LIVE DEMO</div>
+      </div>
+      <div class="orbit-wrap">
+        <div class="orbit-ring ring-1"></div><div class="orbit-ring ring-2"></div>
+        <button class="module module-1" data-module="projects"><span>01</span><b>Projects</b></button>
+        <button class="module module-2" data-module="progress"><span>02</span><b>Progress</b></button>
+        <button class="module module-3" data-module="workers"><span>03</span><b>Workers</b></button>
+        <button class="module module-4" data-module="materials"><span>04</span><b>Materials</b></button>
+        <button class="module module-5" data-module="costs"><span>05</span><b>Costs</b></button>
+        <button class="module module-6" data-module="schedule"><span>06</span><b>Schedule</b></button>
+        <button class="module module-7" data-module="site"><span>07</span><b>Site</b></button>
+        <button class="module module-8" data-module="reports"><span>08</span><b>Reports</b></button>
+        <div class="core"><div class="helmet">⬢</div><h2>PROJECT<br/>CONTROL</h2><p>One project. One source of truth.</p></div>
+      </div>
+      <div class="quick-metrics">
+        <div><strong>48%</strong><span>Completion</span></div>
+        <div><strong>₱2.13M</strong><span>Spent</span></div>
+        <div><strong>27</strong><span>On Site</span></div>
+        <div><strong>5 days</strong><span>Behind</span></div>
+      </div>
+    </section>
+    <section id="moduleView" class="screen">
+      <div class="module-shell">
+        <div class="module-header">
+          <button id="backBtn" class="back-btn">← Back to Project Control</button>
+          <div><p id="moduleEyebrow" class="eyebrow"></p><h2 id="moduleTitle"></h2></div>
+          <button id="newRecordBtn" class="primary-btn">+ New Record</button>
+        </div>
+        <div id="moduleContent"></div>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
