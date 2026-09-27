@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Construction Project Tracker</title>
+<style>
+:root{--bg:#07110e;--panel:#0f1d18;--line:#2a463b;--gold:#d8b96d;--text:#f5f6f3;--muted:#9cafaa}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;min-height:100%;background:radial-gradient(circle at top,#12251e,#07110e 58%,#040906);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+body{overflow-x:hidden}
+button{font:inherit}
+#home{min-height:100svh;padding:12px 14px 14px;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:8px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.kicker{font-size:9px;letter-spacing:.15em;font-weight:800;color:var(--gold);margin-bottom:4px}
+h1{margin:0;font-size:28px;line-height:1}
+.live{font-size:9px;border:1px solid var(--line);padding:7px 10px;border-radius:999px;white-space:nowrap}
+.orbit{position:relative;align-self:center;justify-self:center;width:min(92vw,62svh);aspect-ratio:1/1}
+.r1,.r2{position:absolute;border-radius:50%;pointer-events:none}
+.r1{inset:10%;border:1px solid rgba(216,185,109,.24)}
+.r2{inset:26%;border:1px dashed rgba(156,175,170,.18)}
+.center,.m{position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--text)}
+.center{left:50%;top:50%;transform:translate(-50%,-50%);width:32%;aspect-ratio:1;background:radial-gradient(circle at 35% 28%,#244137,#102019 70%);border:1px solid rgba(216,185,109,.58);flex-direction:column;padding:8px}
+.center .icon{color:var(--gold);font-size:20px;margin-bottom:4px}
+.center b{font-size:clamp(16px,4.6vw,23px);line-height:.95}
+.center small{font-size:9px;color:var(--muted);margin-top:7px;line-height:1.1}
+.m{width:20%;aspect-ratio:1;border:1px solid rgba(216,185,109,.45);background:linear-gradient(145deg,#182a23,#0b1511);cursor:pointer;flex-direction:column;box-shadow:0 10px 28px rgba(0,0,0,.28)}
+.m span{font-size:8px;color:var(--gold);margin-bottom:3px}.m b{font-size:clamp(11px,3.2vw,14px);line-height:1.05}
+.p1{left:40%;top:0}.p2{right:9%;top:14%}.p3{right:0;top:40%}.p4{right:9%;bottom:14%}.p5{left:40%;bottom:0}.p6{left:9%;bottom:14%}.p7{left:0;top:40%}.p8{left:9%;top:14%}
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.metric{border:1px solid var(--line);background:rgba(12,25,20,.85);border-radius:13px;padding:9px 7px;text-align:center}
+.metric strong{display:block;font-size:18px;line-height:1}.metric span{display:block;margin-top:4px;font-size:10px;color:var(--muted)}
+#module{display:none;min-height:100svh;padding:14px}
+.moduleTop{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.back,.new{border-radius:11px;padding:10px 12px}.back{background:transparent;border:1px solid var(--line);color:var(--text)}.new{background:var(--gold);border:0;color:#171208;font-weight:800}
+.moduleTitle{margin:18px 0 12px}.moduleTitle small{color:var(--gold);font-size:9px;letter-spacing:.14em}.moduleTitle h2{margin:5px 0 0;font-size:30px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.card{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:14px}.card small{color:var(--muted)}.card strong{display:block;font-size:22px;margin-top:6px}
+.list{margin-top:12px;display:grid;gap:8px}.row{border:1px solid var(--line);background:#0b1713;border-radius:14px;padding:13px}.row b{display:block}.row span{font-size:11px;color:var(--muted)}
+@media(min-width:761px){
+ #home{padding:24px;grid-template-rows:auto 1fr auto}
+ h1{font-size:46px}.kicker{font-size:11px}.orbit{width:min(680px,70vh)}
+ .m b{font-size:15px}.m span{font-size:9px}.center b{font-size:27px}.center small{font-size:11px}
+ .metrics{grid-template-columns:repeat(4,1fr);max-width:900px;width:100%;justify-self:center}.metric{padding:13px}.metric strong{font-size:20px}
+ .cards{grid-template-columns:repeat(4,1fr)}
+ #module{max-width:1180px;margin:auto}
+}
+</style>
+</head>
+<body>
+<section id="home">
+ <div class="top"><div><div class="kicker">CONSTRUCTION PROJECT TRACKER</div><h1>Project Control</h1></div><div class="live">● LIVE DEMO</div></div>
+ <div class="orbit">
+  <div class="r1"></div><div class="r2"></div>
+  <button class="m p1" data-k="Projects"><span>01</span><b>Projects</b></button>
+  <button class="m p2" data-k="Progress"><span>02</span><b>Progress</b></button>
+  <button class="m p3" data-k="Workers"><span>03</span><b>Workers</b></button>
+  <button class="m p4" data-k="Materials"><span>04</span><b>Materials</b></button>
+  <button class="m p5" data-k="Costs"><span>05</span><b>Costs</b></button>
+  <button class="m p6" data-k="Schedule"><span>06</span><b>Schedule</b></button>
+  <button class="m p7" data-k="Site"><span>07</span><b>Site</b></button>
+  <button class="m p8" data-k="Reports"><span>08</span><b>Reports</b></button>
+  <div class="center"><div class="icon">⬢</div><b>PROJECT<br>CONTROL</b><small>One project. One source of truth.</small></div>
+ </div>
+ <div class="metrics">
+  <div class="metric"><strong>48%</strong><span>Completion</span></div>
+  <div class="metric"><strong>₱2.13M</strong><span>Spent</span></div>
+  <div class="metric"><strong>27</strong><span>On Site</span></div>
+  <div class="metric"><strong>5 days</strong><span>Behind</span></div>
+ </div>
+</section>
+<section id="module">
+ <div class="moduleTop"><button class="back" id="back">← Back</button><button class="new">+ New Record</button></div>
+ <div class="moduleTitle"><small id="eyebrow">PROJECT MODULE</small><h2 id="title">Projects</h2></div>
+ <div class="cards">
+  <div class="card"><small>Current project</small><strong id="c1">48%</strong></div>
+  <div class="card"><small>Budget used</small><strong id="c2">₱2.13M</strong></div>
+  <div class="card"><small>On site</small><strong id="c3">27</strong></div>
+  <div class="card"><small>Status</small><strong id="c4">Active</strong></div>
+ </div>
+ <div class="list" id="list"></div>
+</section>
+<script>
+const data={
+Projects:["Bacoor Commercial Fit-Out — 48% complete","Molino Residence — 72% complete","Warehouse Expansion — 35% complete"],
+Progress:["Concrete works — completed today","Electrical rough-in — active","Masonry / CHB — partial"],
+Workers:["Juan Dela Cruz — Foreman — Present","Mario Santos — Mason — Present","Leo Ramos — Electrician — Present"],
+Materials:["Portland Cement — 142 bags","10mm Rebar — LOW STOCK","CHB 4-inch — 620 pcs"],
+Costs:["Materials — ₱1.12M","Labor — ₱620K","Equipment — ₱210K"],
+Schedule:["Structural Works — 92%","MEPF Rough-In — 54%","Architectural — 8%"],
+Site:["Safety Walk — Passed","Electrical Inspection — Passed","Housekeeping Audit — Action needed"],
+Reports:["Daily Site Report — Ready","Weekly Progress Report — Ready","Cost vs Budget — Ready"]
+};
+document.querySelectorAll(".m").forEach(b=>b.onclick=()=>{
+ const k=b.dataset.k; document.getElementById("home").style.display="none";document.getElementById("module").style.display="block";
+ document.getElementById("title").textContent=k;document.getElementById("eyebrow").textContent=k.toUpperCase()+" MODULE";
+ document.getElementById("list").innerHTML=data[k].map(x=>'<div class="row"><b>'+x+'</b><span>Tap for details</span></div>').join("");
+ scrollTo(0,0);
+});
+document.getElementById("back").onclick=()=>{document.getElementById("module").style.display="none";document.getElementById("home").style.display="grid";scrollTo(0,0)}
+</script>
+</body>
+</html>
