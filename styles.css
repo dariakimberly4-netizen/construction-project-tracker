@@ -73,3 +73,9 @@
     grid-template-columns:repeat(4,minmax(0,1fr))!important;
   }
 }
+
+/* v7 viewport guard */
+html,body,#app{max-width:100%;overflow-x:hidden}
+@media (min-width:761px){
+  #orbitView.screen.active{min-height:100vh}
+}
